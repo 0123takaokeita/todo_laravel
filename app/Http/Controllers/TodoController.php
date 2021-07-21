@@ -11,4 +11,9 @@ class TodoController extends Controller
         $todos = Todo::all();
         return view('todo.index',compact('todos'));
     }
+    
+    //投稿画面を表示
+    public function create(){
+        return view('todo.create');
+    }
 }
