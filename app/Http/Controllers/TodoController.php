@@ -56,4 +56,15 @@ class TodoController extends Controller
             $id . 'を' . $todo->title . 'に更新しました。！'
         );
     }
+    
+    //削除機能の実装
+    public function destroy($id){
+        $todo = Todo::findOrFail($id);
+        $todo->delete();
+
+        return redirect('todos')->with(
+            'status',
+            $todo->title . 'を削除しました。'
+        );
+    }
 }
