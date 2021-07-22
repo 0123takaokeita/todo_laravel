@@ -38,4 +38,10 @@ class TodoController extends Controller
         $todo = Todo::findOrFail($id);
         return view('todo.show',compact('todo'));
     }
+
+    //編集画面の返却
+    public function edit($id){
+        $todo = Todo::findOrFail($id);
+        return view('todo.edit',compact('todo'));
+    }
 }
