@@ -44,4 +44,16 @@ class TodoController extends Controller
         $todo = Todo::findOrFail($id);
         return view('todo.edit',compact('todo'));
     }
+
+    //更新の処理
+    public function update(Request $request,$id){
+        $todo = Todo::findOrFail($id);
+        $todo->title = $request->input('title');
+        $todo->save();
+
+        return redirect('todos')->with(
+            'status',
+            $id . 'を' . $todo->title . 'に更新しました。！'
+        );
+    }
 }
